@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %} <title> Plataforma de Cursos</title> {% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="{{ url_for('static', filename='curso_detalhes.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="containe">
+    <!-- Botão de voltar (topo) -->
+    <a href="{{ url_for('index') }}"
+        style="display: inline-block; margin-bottom: 20px; color: #007BFF; text-decoration: none;">← Voltar para os
+        cursos</a>
+
+    <h1>{{ curso.titulo }}</h1>
+    <p class="descricao">{{ curso.descricao }}</p>
+    <p class="carga-horaria">Carga horária: {{ curso.carga_horaria }} horas</p>
+
+    <form method="POST" action="/inscrever/{{ curso_id }}">
+        <button class="btn">Matricular-se</button>
+    </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}{% endblock %}
+
+    {% block style %}
+    {% endblock %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='base.css') }}">
+</head>
+
+<body>
+    <header class="topo">
+        <div></div> <!-- espaço vazio para o lado esquerdo -->
+        <div class="titulo">Plataforma de Cursos</div>
+        <div class="user-info">Olá, <strong>Clara almeida</strong></div>
+    </header>
+
+
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+
+
+    <footer>
+        <p>&copy; 2025 Plataforma de Cursos | Desenvolvido por Felipe Silva</p>
+    </footer>
+</body>
+
+</html>

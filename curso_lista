@@ -1,0 +1,26 @@
+cursos = [
+    {
+        "titulo": "Python para Iniciantes",
+        "descricao": "Aprenda lógica de programação e os fundamentos da linguagem Python.",
+    },
+    {
+        "titulo": "Introdução ao Design Gráfico",
+        "descricao": "Conceitos básicos de cor, tipografia e composição visual.",
+    },
+    {
+        "titulo": "Marketing Digital",
+        "descricao": "Descubra como divulgar produtos e marcas nas redes sociais.",
+    },
+    {
+        "titulo": "Excel do Zero ao Avançado",
+        "descricao": "Domine fórmulas, gráficos e dashboards no Excel.",
+    },
+    {
+        "titulo": "Fotografia com o Celular",
+        "descricao": "Aprenda técnicas para tirar fotos incríveis com seu smartphone.",
+    },
+]
+for curso in cursos:
+    db.collection("cursos").add(curso)
+
+print("Cursos adicionados com sucesso!")
