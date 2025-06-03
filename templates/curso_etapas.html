@@ -1,0 +1,144 @@
+{% extends "base.html" %}
+
+{% block style %}
+<link rel="stylesheet" href="{{ url_for('static', filename='curso_detalhes.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="containe">
+    <a href="/">⬅️ Voltar</a>
+
+    <!-- Barra de progresso -->
+    <div class="progresso-container" style="margin: 20px 0;">
+        <label for="progresso_range">
+            <strong>Progresso do curso:</strong> {{ progresso_percentual }}%
+        </label>
+        <input type="range" id="progresso_range" value="{{ progresso_percentual }}" min="0" max="100" disabled
+               style="width: 100%; height: 10px;">
+    </div>
+
+    <!-- Título do curso -->
+    <h1 id="nomeCurso">{{ curso.nome }}</h1>
+
+    <!-- Etapa atual -->
+    <div id="etapa-container" style="margin-top: 30px;">
+        <!-- Conteúdo inserido via JavaScript -->
+    </div>
+
+    <!-- Botão para concluir etapa -->
+    <form id="form-etapa" method="POST" style="margin-top: 20px;">
+        <button type="submit" id="botao-etapa">Marcar como concluída</button>
+    </form>
+
+    <!-- Botão de gerar certificado -->
+    {% if progresso_percentual == 100 %}
+    <div style="margin-top: 30px;">
+        <button id="gerarCertificado">🎓 Gerar Certificado</button>
+        <p id="nomeUsuario" style="display: none;">{{ session['usuario_nome'] if session['usuario_nome'] else 'Aluno' }}</p>
+    </div>
+    {% endif %}
+</div>
+
+<!-- Script das etapas -->
+<script>
+    const etapasData = JSON.parse('{{ curso.etapas | tojson | safe }}');
+    const etapasConcluidas = JSON.parse('{{ etapas_concluidas | tojson | safe }}');
+    const cursoId = "{{ curso_id }}";
+    let etapaAtual = etapasConcluidas.length;
+
+    function renderEtapa() {
+        const container = document.getElementById("etapa-container");
+        const formEtapa = document.getElementById("form-etapa");
+        const botaoEtapa = document.getElementById("botao-etapa");
+
+        container.innerHTML = "";
+
+        if (etapaAtual < etapasData.length) {
+            const etapaTitulo = document.createElement("h2");
+            etapaTitulo.innerText = "Etapa " + (etapaAtual + 1);
+
+            const titulo = document.createElement("p");
+            titulo.innerHTML = "<strong>" + etapasData[etapaAtual].titulo + "</strong>";
+
+            const conteudo = document.createElement("p");
+            conteudo.innerText = etapasData[etapaAtual].conteudo;
+
+            container.appendChild(etapaTitulo);
+            container.appendChild(titulo);
+            container.appendChild(conteudo);
+
+            formEtapa.style.display = "block";
+            formEtapa.action = `/concluir_etapa/${cursoId}/${etapaAtual}`;
+        } else {
+            container.innerHTML = "<p>✅ Todas as etapas concluídas!</p>";
+            formEtapa.style.display = "none";
+        }
+    }
+
+    renderEtapa();
+
+    // Certificado
+
+document.addEventListener('DOMContentLoaded', () => {
+    const botaoCertificado = document.getElementById('gerarCertificado');
+    if (botaoCertificado) {
+        botaoCertificado.addEventListener('click', function () {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF('landscape');
+
+            // Definir cor de fundo
+            doc.setFillColor(240, 248, 255); // Azul bem claro
+            doc.rect(0, 0, 297, 210, 'F'); // Tamanho A4 landscape
+
+            const nome = document.getElementById('nomeUsuario').textContent.trim() || 'Aluno';
+            const curso = document.getElementById('nomeCurso').textContent.trim();
+            const dataConclusao = new Date().toLocaleDateString('pt-BR');
+
+            // Título
+            doc.setFontSize(26);
+            doc.setFont("helvetica", "bold");
+            doc.setTextColor(33, 37, 41);
+            doc.text('Certificado de Conclusão', 148, 40, { align: 'center' });
+
+            // Texto do certificado
+            doc.setFontSize(16);
+            doc.setFont("helvetica", "normal");
+            doc.setTextColor(0, 0, 0);
+            doc.text('Certificamos que', 148, 65, { align: 'center' });
+
+            doc.setFont("helvetica", "bold");
+            doc.text(nome, 148, 75, { align: 'center' });
+
+            doc.setFont("helvetica", "normal");
+            doc.text('concluiu com êxito o curso', 148, 85, { align: 'center' });
+
+            doc.setFont("helvetica", "bold");
+            doc.text(`"${curso}"`, 148, 95, { align: 'center' });
+
+            doc.setFont("helvetica", "normal");
+            doc.text(`em ${dataConclusao}.`, 148, 105, { align: 'center' });
+
+            // Assinatura fictícia
+            doc.setFont("helvetica", "normal");
+            doc.setFontSize(12);
+            doc.text('__________________________', 148, 145, { align: 'center' });
+            doc.text('Assinatura Digital', 148, 153, { align: 'center' });
+
+            // Rodapé
+            doc.setFontSize(8);
+            doc.setTextColor(100);
+            doc.text('Gerado automaticamente pela plataforma.', 148, 200, { align: 'center' });
+
+            const nomeArquivo = nome.replace(/\s+/g, '_').toLowerCase() + '_certificado.pdf';
+            doc.save(nomeArquivo);
+        });
+    }
+});
+
+
+</script>
+
+<!-- jsPDF para geração de certificado -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+{% endblock %}

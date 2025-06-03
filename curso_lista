@@ -1,26 +1,192 @@
-cursos = [
-    {
-        "titulo": "Python para Iniciantes",
-        "descricao": "Aprenda lógica de programação e os fundamentos da linguagem Python.",
-    },
-    {
-        "titulo": "Introdução ao Design Gráfico",
-        "descricao": "Conceitos básicos de cor, tipografia e composição visual.",
-    },
-    {
-        "titulo": "Marketing Digital",
-        "descricao": "Descubra como divulgar produtos e marcas nas redes sociais.",
-    },
-    {
-        "titulo": "Excel do Zero ao Avançado",
-        "descricao": "Domine fórmulas, gráficos e dashboards no Excel.",
-    },
-    {
-        "titulo": "Fotografia com o Celular",
-        "descricao": "Aprenda técnicas para tirar fotos incríveis com seu smartphone.",
-    },
+cursos =[
+  {
+    "nome": "Introdução ao Python",
+    "descricao": "Aprenda os conceitos básicos e fundamentais da linguagem Python, desde a sintaxe até estruturas de dados e funções, preparando você para projetos mais complexos.",
+    "carga_horaria": "20h",
+    "etapas": [
+      {
+        "titulo": "Boas-vindas ao Mundo Python",
+        "conteudo": "Seja bem-vindo(a) ao curso de Introdução ao Python! Neste módulo inicial, faremos um tour completo pela plataforma, apresentaremos a metodologia de aprendizado e os recursos disponíveis. Você entenderá o que esperar desta jornada e como otimizar seu aprendizado, além de conhecer a importância e as aplicações de Python no mercado atual."
+      },
+      {
+        "titulo": "Primeiros Passos: Sintaxe e Fundamentos",
+        "conteudo": "Este módulo cobre os pilares da linguagem Python. Você aprenderá sobre a importância da indentação, como declarar e usar variáveis, diferentes tipos de dados (inteiros, floats, strings, booleanos), e como adicionar comentários eficazes ao seu código para torná-lo legível. Também abordaremos operadores aritméticos, de comparação e lógicos, essenciais para qualquer programa."
+      },
+      {
+        "titulo": "Controle de Fluxo: Condicionais e Laços",
+        "conteudo": "Aprenda a controlar o fluxo de execução do seu programa. Explore as estruturas condicionais 'if', 'elif' e 'else' para tomar decisões baseadas em condições. Domine os laços de repetição 'for' para iterar sobre sequências e 'while' para repetir blocos de código enquanto uma condição for verdadeira. Veremos também o uso de 'break' e 'continue'."
+      },
+      {
+        "titulo": "Estruturas de Dados Essenciais",
+        "conteudo": "Neste módulo, mergulhe nas principais estruturas de dados do Python. Entenda e pratique com listas (mutáveis e ordenadas), tuplas (imutáveis e ordenadas), conjuntos (não ordenados e sem duplicatas) e dicionários (mapeamentos chave-valor). Aprenda a manipulá-las, adicionar, remover e acessar elementos de forma eficiente."
+      },
+      {
+        "titulo": "Funções: Organizando o Código",
+        "conteudo": "Descubra o poder das funções para modularizar e reutilizar seu código. Aprenda a definir funções, passar argumentos, retornar valores e entender o conceito de escopo de variáveis. Abordaremos também funções anônimas (lambda) e a importância de documentar suas funções."
+      },
+      {
+        "titulo": "Tratamento de Erros e Exceções",
+        "conteudo": "Prepare-se para lidar com imprevistos. Este módulo ensina como identificar e tratar erros comuns em Python usando blocos 'try', 'except', 'else' e 'finally'. Você aprenderá a criar código mais robusto e a fornecer mensagens de erro úteis para o usuário."
+      }
+    ]
+  },
+  {
+    "nome": "Desenvolvimento Web com Flask",
+    "descricao": "Crie aplicações web dinâmicas e robustas do zero utilizando o microframework Flask, integrando banco de dados, formulários e autenticação para projetos completos.",
+    "carga_horaria": "25h",
+    "etapas": [
+      {
+        "titulo": "Introdução ao Flask e Setup do Ambiente",
+        "conteudo": "Tenha uma visão geral do que é o Flask, suas vantagens como microframework e quando utilizá-lo. Este módulo guiará você na configuração do ambiente de desenvolvimento, incluindo a instalação de Python, pip e a criação e ativação de ambientes virtuais para isolar suas dependências de projeto."
+      },
+      {
+        "titulo": "Rotas, Views e Requisições HTTP",
+        "conteudo": "Aprenda a definir rotas (URLs) para sua aplicação e associá-las a funções de visualização (views) que retornam conteúdo HTML. Entenda os métodos de requisição HTTP (GET, POST, PUT, DELETE) e como o Flask os gerencia para diferentes interações com o usuário, incluindo o uso de argumentos dinâmicos nas URLs."
+      },
+      {
+        "titulo": "Templates com Jinja2: Dinamizando seu HTML",
+        "conteudo": "Explore o poder do Jinja2, o motor de templates padrão do Flask. Aprenda a integrar variáveis e lógica Python diretamente em seu código HTML, usar herança de templates para reutilização de layout e incluir blocos de código para maior flexibilidade e organização da sua interface de usuário."
+      },
+      {
+        "titulo": "Formulários Web com WTForms e Validação",
+        "conteudo": "Construa formulários web seguros e funcionais utilizando a biblioteca WTForms. Este módulo abordará a criação de diferentes tipos de campos, a validação de dados de entrada do usuário para garantir a integridade, e como processar e exibir mensagens de erro para uma experiência do usuário aprimorada."
+      },
+      {
+        "titulo": "Persistência de Dados com Banco de Dados (SQLAlchemy e Firestore)",
+        "conteudo": "Conecte sua aplicação Flask a um banco de dados. Abordaremos o uso de SQLAlchemy para interagir com bancos de dados relacionais (como SQLite ou PostgreSQL) e também demonstraremos a integração com o Firestore, um banco de dados NoSQL do Google Cloud, para salvar e recuperar dados de forma eficiente."
+      },
+      {
+        "titulo": "Autenticação e Autorização de Usuários",
+        "conteudo": "Implemente um sistema de autenticação completo. Aprenda a registrar e logar usuários, gerenciar sessões, proteger rotas com login obrigatório e implementar controle de acesso baseado em permissões para diferentes tipos de usuários em sua aplicação Flask."
+      },
+      {
+        "titulo": "Deploy da Aplicação Flask",
+        "conteudo": "Prepare sua aplicação para o mundo real. Este módulo cobre as etapas necessárias para realizar o deploy de sua aplicação Flask em serviços de hospedagem como Heroku ou PythonAnywhere, incluindo a configuração de arquivos de dependência e variáveis de ambiente."
+      }
+    ]
+  },
+  {
+    "nome": "HTML e CSS para Iniciantes",
+    "descricao": "Aprenda a construir a estrutura de páginas web com HTML e a estilizar de forma profissional com CSS, dominando conceitos de layout responsivo e melhores práticas de design.",
+    "carga_horaria": "15h",
+    "etapas": [
+      {
+        "titulo": "Fundamentos do HTML: A Estrutura da Web",
+        "conteudo": "Neste módulo, você aprenderá as bases do HTML5. Cobriremos as tags essenciais para estruturar uma página (cabeçalhos, parágrafos, listas, links, imagens), a importância da semântica para acessibilidade e SEO, e a organização correta de um documento HTML com 'head' e 'body'."
+      },
+      {
+        "titulo": "Explorando Elementos HTML Avançados",
+        "conteudo": "Aprofunde-se em elementos HTML mais complexos. Aprenda a criar tabelas para exibir dados, formulários para interação com o usuário (inputs, textareas, selects), e elementos multimídia como áudio e vídeo. Entenda também o uso de iframes e a importância de atributos para cada tag."
+      },
+      {
+        "titulo": "Introdução ao CSS: Estilizando seu Conteúdo",
+        "conteudo": "Dê vida às suas páginas web com CSS. Conheça as três formas de incluir CSS (inline, interno, externo) e as melhores práticas. Abordaremos seletores CSS (tag, class, id), propriedades de texto (cor, fonte, tamanho), e modelos de caixa (box model) para controlar espaçamento e dimensões dos elementos."
+      },
+      {
+        "titulo": "Layout e Posicionamento com CSS",
+        "conteudo": "Domine o layout das suas páginas. Este módulo explora as propriedades de display (block, inline, inline-block), o posicionamento de elementos (static, relative, absolute, fixed, sticky) e o uso de float e clear para criar colunas e alinhar conteúdo. Preparação para flexbox e grid."
+      },
+      {
+        "titulo": "CSS Flexbox: Construindo Layouts Flexíveis",
+        "conteudo": "O Flexbox é uma ferramenta poderosa para criar layouts flexíveis e responsivos. Aprenda a usar suas propriedades (display: flex, justify-content, align-items, flex-direction) para alinhar e distribuir itens em um container, otimizando a organização de seus componentes."
+      },
+      {
+        "titulo": "CSS Grid: Layouts Bidimensionais Robustos",
+        "conteudo": "Para layouts mais complexos, o CSS Grid é a solução. Entenda como criar grades bidimensionais, definir linhas e colunas, posicionar itens em células específicas e criar layouts adaptáveis, ideal para estruturas de página mais elaboradas."
+      },
+      {
+        "titulo": "Design Responsivo com Media Queries",
+        "conteudo": "Garanta que seu site seja visualmente agradável em qualquer dispositivo. Aprenda a usar 'media queries' para aplicar estilos CSS diferentes com base no tamanho da tela, permitindo que seu layout se adapte automaticamente a desktops, tablets e smartphones."
+      }
+    ]
+  },
+  {
+    "nome": "Desenvolvimento Mobile com React Native",
+    "descricao": "Desenvolva aplicativos móveis nativos para iOS e Android usando JavaScript e React, aproveitando uma única base de código para ambas as plataformas.",
+    "carga_horaria": "30h",
+    "etapas": [
+      {
+        "titulo": "Introdução ao React Native e Configuração",
+        "conteudo": "Bem-vindo ao mundo do desenvolvimento mobile com React Native! Este módulo abrange o que é React Native, suas vantagens e desvantagens, e um guia completo para configurar seu ambiente de desenvolvimento, incluindo Node.js, Expo CLI (ou React Native CLI) e emuladores iOS/Android."
+      },
+      {
+        "titulo": "Componentes e Props: Os Blocos de Construção",
+        "conteudo": "Aprenda a construir interfaces de usuário com componentes React Native. Entenda a diferença entre componentes de classe e funcionais, como utilizar 'props' para passar dados entre eles e os componentes básicos como 'View', 'Text', 'Image' e 'Button'."
+      },
+      {
+        "titulo": "Gerenciamento de Estado com useState e useEffect",
+        "conteudo": "Domine o gerenciamento de estado em componentes funcionais utilizando os Hooks 'useState' para dados mutáveis e 'useEffect' para lidar com efeitos colaterais (chamadas de API, subscriptions, etc.). Explore diferentes cenários de uso para manter sua aplicação dinâmica e reativa."
+      },
+      {
+        "titulo": "Navegação entre Telas (React Navigation)",
+        "conteudo": "Crie uma experiência de usuário fluida com navegação entre diferentes telas. Este módulo foca na biblioteca React Navigation, explorando Stack Navigator, Tab Navigator e Drawer Navigator para construir estruturas de navegação complexas e intuitivas."
+      },
+      {
+        "titulo": "Estilização e Layout com StyleSheet",
+        "conteudo": "Estilize seus componentes React Native para um visual atraente. Aprenda a usar 'StyleSheet.create' para otimizar a performance, aplicar estilos inline e externos, e dominar Flexbox para criar layouts responsivos que se adaptam a diferentes tamanhos de tela."
+      },
+      {
+        "titulo": "Consumindo APIs e Requisições HTTP",
+        "conteudo": "Conecte seu aplicativo mobile a serviços externos. Este módulo aborda como realizar requisições HTTP (GET, POST, PUT, DELETE) para consumir APIs RESTful usando 'fetch' ou a biblioteca Axios, e como exibir os dados recebidos na interface do usuário."
+      },
+      {
+        "titulo": "Armazenamento Local de Dados",
+        "conteudo": "Persista dados localmente no dispositivo do usuário. Explore opções como 'AsyncStorage' para dados simples e bibliotecas como 'Realm' ou 'SQLite' para cenários mais complexos, permitindo que seu aplicativo funcione offline ou carregue dados mais rapidamente."
+      },
+      {
+        "titulo": "Debug e Otimização de Performance",
+        "conteudo": "Aprenda a depurar problemas em seu aplicativo React Native usando ferramentas de desenvolvimento. Também abordaremos técnicas para otimizar a performance da sua aplicação, como o uso de 'memoization' e a otimização de renderizações."
+      }
+    ]
+  },
+  {
+    "nome": "Introdução a Bancos de Dados SQL",
+    "descricao": "Compreenda os fundamentos de bancos de dados relacionais, desde a modelagem de dados até a escrita de consultas SQL avançadas para manipulação e recuperação de informações.",
+    "carga_horaria": "20h",
+    "etapas": [
+      {
+        "titulo": "Conceitos Fundamentais de Bancos de Dados",
+        "conteudo": "Este módulo introduz o universo dos bancos de dados. Você aprenderá o que são bancos de dados, a diferença entre sistemas relacionais e não relacionais, a importância da persistência de dados e os principais componentes de um SGBD (Sistema Gerenciador de Banco de Dados)."
+      },
+      {
+        "titulo": "Modelagem de Dados Relacionais",
+        "conteudo": "Descubra como projetar um banco de dados eficiente. Abordaremos o Modelo Entidade-Relacionamento (ER), a criação de diagramas ER, e o processo de normalização (1FN, 2FN, 3FN) para garantir a integridade e reduzir a redundância dos dados."
+      },
+      {
+        "titulo": "Linguagem SQL: DDL (Definição de Dados)",
+        "conteudo": "Comece a interagir com bancos de dados através do SQL. Este módulo foca na DDL (Data Definition Language), onde você aprenderá a criar (CREATE), alterar (ALTER) e excluir (DROP) tabelas, bancos de dados, índices e restrições (PRIMARY KEY, FOREIGN KEY, NOT NULL, UNIQUE)."
+      },
+      {
+        "titulo": "Linguagem SQL: DML (Manipulação de Dados)",
+        "conteudo": "Aprenda a manipular os dados dentro das tabelas. Este módulo cobre a DML (Data Manipulation Language), com foco nas operações de inserção (INSERT INTO), atualização (UPDATE), exclusão (DELETE) e, principalmente, consulta de dados (SELECT)."
+      },
+      {
+        "titulo": "Consultas SQL Avançadas: Filtragem e Ordenação",
+        "conteudo": "Domine a arte de extrair informações específicas. Aprofunde-se no comando SELECT, utilizando a cláusula WHERE para filtrar registros com base em condições complexas, ORDER BY para ordenar os resultados, e LIMIT/OFFSET para paginação."
+      },
+      {
+        "titulo": "Agregações e Agrupamentos em SQL",
+        "conteudo": "Analise seus dados de forma mais profunda. Explore funções de agregação como COUNT(), SUM(), AVG(), MIN() e MAX(). Aprenda a agrupar resultados usando a cláusula GROUP BY e a filtrar esses grupos com HAVING."
+      },
+      {
+        "titulo": "Joins: Combinando Dados de Múltiplas Tabelas",
+        "conteudo": "Conecte informações de diferentes tabelas. Este módulo é crucial para entender como combinar dados usando INNER JOIN, LEFT JOIN, RIGHT JOIN e FULL OUTER JOIN para obter conjuntos de resultados completos e relacionados."
+      },
+      {
+        "titulo": "Subconsultas e Views",
+        "conteudo": "Aumente a flexibilidade das suas consultas. Aprenda a usar subconsultas (queries aninhadas) para resolver problemas complexos e a criar 'views' para simplificar consultas recorrentes e controlar o acesso a dados."
+      }
+    ]
+  }
 ]
-for curso in cursos:
-    db.collection("cursos").add(curso)
 
-print("Cursos adicionados com sucesso!")
+for curso in cursos:
+  doc_ref = db.collection("cursos").document()
+  doc_ref.set({
+      "nome": curso["nome"],
+      "descricao": curso["descricao"],
+      "carga_horaria": curso["carga_horaria"],
+      "etapas": curso["etapas"]
+  })
+
+print("Cursos enviados com sucesso!")

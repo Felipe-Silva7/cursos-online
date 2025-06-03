@@ -1,7 +1,5 @@
 {% extends "base.html" %}
 
-{% block title %} <title> Plataforma de Cursos</title> {% endblock %}
-
 {% block style %}
 <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
 {% endblock %}
@@ -13,13 +11,26 @@
 
         {% for curso in cursos %}
         <div class="course-card">
-            <h3>{{ curso.titulo }}</h3>
+            <h3>{{ curso.nome }}</h3>
             <p>{{ curso.descricao }}</p>
-            <a href="{{url_for('detalhes_curso', curso_id = curso.id)}}"><button>Matricular-se</button></a>
+
+            {% if curso.id in progresso_usuario %}
+                {% if progresso_usuario[curso.id]['concluido'] %}
+                <a href="{{ url_for('curso_etapa', curso_id=curso.id) }}">
+                        <button style="background-color: #4CAF50; color: white;">Concluído ✅</button>
+                    </a>
+                {% elif progresso_usuario[curso.id]['em_andamento'] %}
+                    <a href="{{ url_for('curso_etapa', curso_id=curso.id) }}">
+                        <button style="background-color: #2196F3; color: white;">Ver progresso</button>
+                    </a>
+                {% endif %}
+            {% else %}
+                <a href="{{ url_for('detalhes_curso', curso_id=curso.id) }}">
+                    <button>Ver mais</button>
+                </a>
+            {% endif %}
         </div>
         {% endfor %}
     </section>
 </main>
-
-
 {% endblock %}
